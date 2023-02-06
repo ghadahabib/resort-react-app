@@ -1,7 +1,5 @@
 import React, { Component } from 'react';
 import Items from './data';
-// import Client from './Contentfull';
-// Client.getEntries().then(response => console.log(response.items));
 const RoomContext =  React.createContext();
 class RoomProvider extends Component {
     state = {
@@ -9,7 +7,7 @@ class RoomProvider extends Component {
         sortedRooms : [],
         featuredRooms :[],
         loading : true ,
-        type : 'all',
+        type : 'single',
         capacity : 1,
         price : 0,
         minPrice : 0,
@@ -78,7 +76,7 @@ getRoom = slug =>{
 }
 handleChange = e => {
     const target = e.target;
-    const value = target.type === 'checkbox' ? target.checked : target.value;
+    const value = target.type === 'radio' ? target.checked : target.value;
     const name = e.target.name;
     this.setState({
         [name]: value
